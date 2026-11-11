@@ -1,0 +1,266 @@
+/* Barath Portfolio - style.css */
+
+:root {
+    --bg: #f3f4f1;
+    --surface: #fbfbf9;
+    --ink: #14171a;
+    --ink-soft: #3b4148;
+    --muted: #555b62;
+    --line: #d5d8d0;
+    --line-strong: #b9bdb4;
+    --hover: #e9ece6;
+    --accent: #1f4fd8;
+    --accent-dark: #163a9e;
+    --on-accent: #ffffff;
+
+    --font-display: 'Space Grotesk', system-ui, sans-serif;
+    --font-body: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, Consolas, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+a { color: var(--accent); }
+a:hover { color: var(--accent-dark); }
+a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+
+.container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding-left: max(24px, env(safe-area-inset-left, 0px));
+    padding-right: max(24px, env(safe-area-inset-right, 0px));
+}
+
+/* ---------- Header ---------- */
+.site-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding-block: 24px;
+    border-bottom: 1px solid var(--line);
+}
+
+.brand { display: flex; align-items: baseline; gap: 10px; }
+.brand-name {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: -0.01em;
+}
+.brand-tag { font-family: var(--font-mono); font-size: 13px; color: var(--muted); }
+
+.nav { display: flex; flex-wrap: wrap; gap: 24px; font-weight: 500; font-size: 15px; }
+.nav a { color: var(--ink); text-decoration: none; }
+.nav a:hover { color: var(--accent); }
+
+/* ---------- Hero ---------- */
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 48px;
+    padding-block: 72px 64px;
+}
+
+.hero-main {
+    flex: 999 1 520px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.eyebrow {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.hero h1 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(36px, 6vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+}
+
+.hero-lead { margin: 0; max-width: 60ch; font-size: 18px; color: var(--ink-soft); }
+
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; padding-top: 8px; }
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 0 24px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+}
+.btn-primary { background: var(--accent); color: var(--on-accent); }
+.btn-primary:hover { background: var(--accent-dark); color: var(--on-accent); }
+.btn-outline { border: 1.5px solid var(--ink); color: var(--ink); }
+.btn-outline:hover { background: var(--ink); color: var(--bg); }
+
+.toolkit {
+    flex: 1 1 300px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 24px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+}
+.toolkit-title {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+.toolkit dl { margin: 0; display: flex; flex-direction: column; gap: 14px; }
+.toolkit dt { font-size: 13px; color: var(--muted); }
+.toolkit dd { margin: 2px 0 0; font-family: var(--font-mono); font-size: 14px; }
+
+/* ---------- Projects ---------- */
+.projects { padding-block: 16px 72px; }
+
+.section-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px 24px;
+    padding-bottom: 20px;
+}
+.section-head h2,
+.about h2 {
+    margin: 0;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 36px;
+    letter-spacing: -0.02em;
+}
+.section-note { margin: 0; font-family: var(--font-mono); font-size: 13px; color: var(--muted); }
+
+.ledger { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 24px;
+    padding: 24px 16px;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink);
+    text-decoration: none;
+    transition: background 0.15s ease;
+}
+.row:hover { background: var(--hover); color: var(--ink); }
+.row:hover .row-title { color: var(--accent); }
+
+.row-num {
+    flex: 0 0 48px;
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 16px;
+    color: var(--accent);
+}
+
+.row-text { flex: 1 1 300px; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.row-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: -0.01em;
+}
+.row-desc { font-size: 15px; color: var(--ink-soft); }
+
+.tags { flex: 0 1 240px; min-width: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.tag {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    padding: 3px 8px;
+    border: 1px solid var(--line-strong);
+    border-radius: 4px;
+    color: var(--ink-soft);
+}
+
+.row-link {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--accent);
+}
+.row-link svg { stroke: currentColor; }
+
+/* ---------- About ---------- */
+.about {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px 64px;
+    padding-block: 56px 72px;
+    border-top: 1px solid var(--line);
+}
+.about h2 { flex: 0 0 200px; }
+.about-body {
+    flex: 1 1 400px;
+    min-width: 0;
+    max-width: 68ch;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-size: 18px;
+    color: var(--ink-soft);
+}
+.about-body p { margin: 0; }
+
+/* ---------- Footer ---------- */
+.site-footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px 24px;
+    padding-block: 24px 40px;
+    border-top: 1px solid var(--line);
+    font-size: 14px;
+    color: var(--muted);
+}
+.site-footer a { font-weight: 600; }
+
+/* ---------- Small screens ---------- */
+@media (max-width: 640px) {
+    .hero { padding-block: 48px 40px; gap: 32px; }
+    .row { padding: 20px 8px; }
+    .about h2 { flex-basis: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .row { transition: none; }
+}
